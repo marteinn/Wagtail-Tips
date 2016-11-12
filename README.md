@@ -3,7 +3,7 @@
 This repository contains a collection of common wagtail optimizations, customizations, tips and ticks.
 
 ## WYSIWYG Editor (hallo.js)
-- [Customize available WYSIWYG text formats](./customize-editor-text-formats/)
+- [Customize available WYSIWYG text formats](./customize-editor-text-formats/INDEX.md)
 
 
 ## Contributing

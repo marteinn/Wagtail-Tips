@@ -5,7 +5,7 @@ Wagtail uses a javascript object called halloPlugins to setup the wysiwyg editor
 In the example below we are only allowing p and h3 format tags.
 
 ```python
-// wagtail_hooks.py (tested on wagtail 1.7)
+# wagtail_hooks.py (tested on wagtail 1.7)
 
 @hooks.register('insert_editor_js')
 def override_editor_heading_formats():
