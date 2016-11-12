@@ -1,0 +1,3 @@
+- Wagtail factories
+- Adding custom page validation on save
+- Showing html source in WYSIWYG editor
