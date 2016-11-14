@@ -5,6 +5,8 @@ Wagtail uses treebeard at its base and therefore uses its path struture, by gene
 ### Example factory
 
 ```python
+# Tested on Wagtail 1.7 and factory_boy 2.7.1
+
 import factory
 from wagtail.wagtailcore.models import Site, Page
 
@@ -38,5 +40,5 @@ Keep in mind that this approach put a bit more responsibility on you, since you 
 import myapp.factories import PageFactory
 page = PageFactory.create(title='mypage')
 
-sub_page = PageFactory.create(title='mypage', depth=4, path='{}0001'.format(page.path))
+sub_page = PageFactory.create(title='mypage', depth=page.depth+1, path='{}0001'.format(page.path))
 ```
