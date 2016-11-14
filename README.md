@@ -5,6 +5,9 @@ This repository contains a collection of common wagtail optimizations, customiza
 ## WYSIWYG Editor (hallo.js)
 - [Customize available WYSIWYG text formats](./customize-editor-text-formats/INDEX.md)
 
+## Testing
+
+- [Using Wagtail with Factory Boy](./factoryboy-factories/INDEX.md)
 
 ## Contributing
 
