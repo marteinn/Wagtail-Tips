@@ -1,6 +1,6 @@
 # Using Wagtail with Factory Boy
 
-Wagtail uses treebeard at its base and therefore uses its path struture, by generating the path with a sequence we can in a easy way create test models.
+Wagtail uses [treebeard](https://github.com/tabo/django-treebeard) to handle hierarchy and therefore uses its path struture, by generating the path with a sequence we can in a easy way create test models.
 
 ### Example factory
 
