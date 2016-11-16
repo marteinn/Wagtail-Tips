@@ -2,6 +2,7 @@
 
 Wagtail uses [treebeard](https://github.com/tabo/django-treebeard) to handle hierarchy and therefore uses its path struture, by generating the path with a sequence we can in a easy way create test models.
 
+
 ### Example factory
 
 ```python
@@ -23,6 +24,7 @@ class PageFactory(factory.DjangoModelFactory):
     title = factory.Sequence(lambda x: 'page-title-{0}'.format(x))
 ```
 
+
 ### Usage
 
 And this is how you might use it in a unittest.
@@ -41,4 +43,31 @@ import myapp.factories import PageFactory
 page = PageFactory.create(title='mypage')
 
 sub_page = PageFactory.create(title='mypage', depth=page.depth+1, path='{}0001'.format(page.path))
+```
+
+
+### Site factory
+
+Testing a site is site with a root page is also straight forward with a SubFactory.
+
+```python
+import factory
+from wagtail.wagtailcore.models import Site
+
+class SiteFactory(factory.DjangoModelFactory):
+    class Meta:
+        model = Site
+
+    hostname = factory.Sequence(lambda x: 'host-{0}'.format(x))
+    site_name = factory.Sequence(lambda x: 'Site {0}'.format(x))
+
+    root_page = factory.SubFactory(PageFactory)
+```
+
+### Usage
+
+```python
+site_a = SiteFactory.create(
+    root_page=PageFactory.create(path='00010002')
+)
 ```
