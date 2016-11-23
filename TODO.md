@@ -7,3 +7,4 @@
 - [ ] Using custom page routing (Pages)
 - [ ] Overriding built in apps (System)
 - [ ] Adding new admin tabs (Admin)
+- [ ] Disable page unicode slugs (Pages)
