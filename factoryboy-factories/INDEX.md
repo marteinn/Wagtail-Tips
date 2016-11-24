@@ -25,7 +25,7 @@ class PageFactory(factory.DjangoModelFactory):
 ```
 
 
-### Usage
+#### Usage
 
 And this is how you might use it in a unittest.
 
@@ -64,7 +64,7 @@ class SiteFactory(factory.DjangoModelFactory):
     root_page = factory.SubFactory(PageFactory)
 ```
 
-### Usage
+#### Usage
 
 ```python
 site_a = SiteFactory.create(
@@ -72,4 +72,36 @@ site_a = SiteFactory.create(
 )
 
 self.assertEquals(site_a.root_page.title, 'mypage')
+```
+
+
+### Document factory
+
+If you want to write tests for the Document model, just use the `get_document_model` when defining meta model.
+
+```
+class DocumentFactory(factory.DjangoModelFactory):
+    class Meta:
+        model = get_document_model()
+
+    title = factory.sequence(lambda x: 'document-title-{0}'.format(x))
+    file = factory.django.FileField(filename='book.pdf')
+```
+
+#### Usage
+
+```
+document = DocumentFactory.create()
+
+my_recipe = MyRecipeFactory.create(
+    file_attachment=document
+)
+
+response = self.client.get(reverse('recipe:attachment_download',
+                                   kwargs={
+                                        'recipe': my_recipe.pk,
+                                   })
+
+self.assertTrue(response['Content-Disposition'].endswith(
+    document.filename))
 ```
