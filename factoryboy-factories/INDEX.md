@@ -79,7 +79,7 @@ self.assertEquals(site_a.root_page.title, 'mypage')
 
 If you want to write tests for the Document model, just use the `get_document_model` when defining meta model.
 
-```
+```python
 class DocumentFactory(factory.DjangoModelFactory):
     class Meta:
         model = get_document_model()
@@ -90,7 +90,7 @@ class DocumentFactory(factory.DjangoModelFactory):
 
 #### Usage
 
-```
+```python
 document = DocumentFactory.create()
 
 my_recipe = MyRecipeFactory.create(
