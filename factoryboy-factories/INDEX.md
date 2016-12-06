@@ -105,3 +105,20 @@ response = self.client.get(reverse('recipe:attachment_download',
 self.assertTrue(response['Content-Disposition'].endswith(
     document.filename))
 ```
+
+
+### Image factory
+
+```python
+import factory
+from wagtail.wagtailimages.tests.utils import get_test_image_file
+from wagtail.wagtailimages.models import Image
+
+
+class ImageFactory(factory.DjangoModelFactory):
+    title = factory.sequence(lambda x: 'image-{0}'.format([x]))
+    file = factory.LazyAttribute(lambda x: get_test_image_file())
+
+    class Meta:
+        model = Image
+```
